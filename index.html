@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUC-Eats — Delivery Universitário</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="notificacoes_separado.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo">
+        <img src="imagens/ChatGPT Image 28 de mai. de 2026, 13_51_28.png" alt="logo" class="logo-image" width="100" height="100">
+        <span class="logo-text">PUC EATS</span>
+      </a>
+
+      <!-- ID 07 – Pesquisa -->
+      <div class="search-bar">
+    <span class="search-icon">⌕</span>
+
+    <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Buscar restaurantes, pratos, categorias…"
+    >
+
+    <button class="search-btn">Buscar</button>
+    <button class="filtro-btn">Filtrar</button>
+      </div>
+
+      <div class="nav-actions">
+        <a href="auth.html" class="nav-link">Entrar</a>
+        <a href="auth.html" class="btn-primary">Cadastrar</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO / BANNER PROMOCIONAL ===== -->
+  <!-- ID 02 – Promoções -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="hero-badge">🎓 Exclusivo PUC-PR</span>
+        <h1 class="hero-title">Coma bem,<br><em>estude melhor.</em></h1>
+        <p class="hero-subtitle">Delivery universitário com os melhores restaurantes perto do campus. Promoções diárias para estudantes.</p>
+        <div class="hero-cta">
+          <a href="#restaurantes" class="btn-primary btn-large">Ver restaurantes</a>
+          <a href="#promocoes" class="btn-outline btn-large">Ver promoções</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card floating">
+          <img src="imagens/logopuceats.png" alt="logo" class="logo-image">
+          <div class="hero-food-fallback"></div>
+        </div>
+        <div class="hero-stat s1">
+          <strong>4.9★</strong><span>Avaliação</span>
+        </div>
+        <div class="hero-stat s2">
+          <strong>30min</strong><span>Entrega</span>
+        </div>
+        <div class="hero-stat s3">
+          <strong>200+</strong><span>Pratos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUPONS / PROMOÇÕES ===== -->
+  <!-- ID 02 + ID 08 -->
+  <section class="cupons-section" id="promocoes">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🏷️ Cupons & Ofertas do Dia</h2>
+        <p class="section-sub">Economize mais sendo estudante</p>
+      </div>
+      <div class="cupons-grid">
+
+        <div class="cupom-card cupom-destaque">
+          <div class="cupom-tag">MAIS POPULAR</div>
+          <div class="cupom-emoji">🍽️</div>
+          <h3 class="cupom-titulo">Cafeteria Dripper</h3>
+          <p class="cupom-desc">Na Compra de um Café tamanho G, você paga o valor de um copo M! </p>
+          <div class="cupom-code">
+            <span>PUCDRIPPER</span>
+          </div>
+          <div class="cupom-info">Válido hoje • Até 23h</div>
+        </div>
+
+        <div class="cupom-card">
+          <div class="cupom-emoji">🍔</div>
+          <h3 class="cupom-titulo">Combo Lanches</h3>
+          <p class="cupom-desc">20% OFF em qualquer combo + batata frita grátis</p>
+          <div class="cupom-code"><span>BURGERPUC20</span></div>
+          <div class="cupom-info">Válido hoje • Até 22h</div>
+        </div>
+
+        <div class="cupom-card">
+          <div class="cupom-emoji">🍣</div>
+          <h3 class="cupom-titulo">Japonesa Special</h3>
+          <p class="cupom-desc">Combo combinado para 2 com 15% de desconto</p>
+          <div class="cupom-code"><span>SUSHIPUC15</span></div>
+          <div class="cupom-info">Válido hoje • Até 21h</div>
+        </div>
+
+        <div class="cupom-card">
+          <div class="cupom-emoji">🍧</div>
+          <h3 class="cupom-titulo">Açaí do Estudante</h3>
+          <p class="cupom-desc">500ml de açaí com 3 adicionais por R$ 18,90</p>
+          <div class="cupom-code"><span>ACAIPUC</span></div>
+          <div class="cupom-info">Válido hoje • Até 20h</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Restaurantes e Cardápio ===== -->
+  <!-- ID 04 -->
+  <section class="perto-section" id="restaurantes">
+  <div class="container">
+    
+    <div class="section-header">
+      <h2 class="section-title">📍Restaurantes</h2>
+      <p class="section-sub">Restaurantes próximos à PUC-PR  e Cardápio Digital— Curitiba</p>
+      
+    </div>
+
+    <div class="layout-split">
+      
+      <div class="coluna-esquerda">
+        <div class="restaurantes-lista">
+
+          <div class="rest-card horizontal restaurante">
+            <div class="rest-img">
+              <img src="imagens/f8e36d07-bce5-4560-ae4c-32ef59a2f198.jpg" alt="Cafeteria Dripper">
+              <div class="rest-badge-promo">-20%</div>
+              <button class="rest-fav" title="Favoritar">♡</button>
+            </div>
+            <div class="rest-info">
+              <div class="rest-header-row">
+                <h3 class="rest-nome">
+                  <a href="cardapio.html">Cafeteria Exemplo</a>
+                </h3>
+                <span class="rest-rating">⭐ 4.9</span>
+              </div>
+              <p class="rest-tipo">Bebidas • Lanches Naturais • Cafeteria</p>
+              <div class="rest-meta">
+                <span>📍 200m</span>
+                <span>⏱ 10-15 min</span>
+                <span>🛵 Grátis</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rest-card horizontal restaurante">
+            <div class="rest-img">
+              <img src="imagens/Gemini_Generated_Image_vrmjs3vrmjs3vrmj.png" alt="Pizzaria Campus">
+              <div class="rest-badge-promo">Novo</div>
+              <button class="rest-fav" title="Favoritar">♡</button>
+            </div>
+            <div class="rest-info">
+              <div class="rest-header-row">
+                <h3 class="rest-nome">
+                  <a href="cardapio.html">Pizzaria Exemplo</a>
+                </h3>
+                <span class="rest-rating">⭐ 4.7</span>
+              </div>
+              <p class="rest-tipo">Pizzas • Esfihas • Calzones</p>
+              <div class="rest-meta">
+                <span>📍 350m</span>
+                <span>⏱ 20-30 min</span>
+                <span>🛵 R$ 3,99</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rest-card horizontal restaurante">
+            <div class="rest-img">
+              <img src="imagens/Gemini_Generated_Image_tdcnk6tdcnk6tdcn.png" alt="PF do Trailer">
+              <button class="rest-fav" title="Favoritar">♡</button>
+            </div>
+            <div class="rest-info">
+              <div class="rest-header-row">
+                <h3 class="rest-nome">
+                  <a href="cardapio.html">PF Exemplo</a>
+                </h3>
+              </div>
+              <p class="rest-tipo">Japonesa • Sushi • Temaki</p>
+              <div class="rest-meta">
+                <span>📍 1km</span>
+                <span>⏱ 25-35 min</span>
+                <span>🛵 R$ 4,99</span>
+              </div>
+            </div>
+          </div>
+          <div class="ver-todos-container">
+        <a href="ver-todos.html" class="btn-ver-todos">
+            Ver todos
+        </a>
+        
+    </div>
+
+      </div> </div> <div class="coluna-mapa">
+        <img src="imagens/maps.png" alt="Mapa da Região">
+      </div>
+
+    </div> </div>
+</section>
+
+  <!-- ===== FAVORITOS ===== -->
+  <!-- ID 03 -->
+  <section class="favoritos-section" id="favoritos">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">❤️ Seus Favoritos</h2>
+      <p class="section-sub">Restaurantes que você ama</p>
+    </div>
+
+    <div class="favoritos-grid">
+
+      <div class="fav-card">
+        <div class="fav-img">
+          <div class="fav-emoji">☕</div>
+          <div class="fav-coracaoo">❤️</div>
+        </div>
+        <div class="fav-info">
+          <h4>
+          <a href="cardapio.html"> Cafeteria Exemplo </a>
+          </h4>
+          
+          <span>⭐ 4.9 • Cafeteria</span>
+        </div>
+      </div>
+
+      <div class="fav-card">
+        <div class="fav-img">
+          <div class="fav-emoji">🍕</div>
+          <div class="fav-coracaoo">❤️</div>
+        </div>
+        <div class="fav-info">
+          <h4>
+          <a href="cardapio.html"> Pizzaria Exemplo </a>
+          </h4>
+          <span>⭐ 4.7 • Pizzas</span>
+        </div>
+      </div>
+
+      <div class="fav-card">
+        <div class="fav-img">
+          <div class="fav-emoji">🍽️</div>
+          <div class="fav-coracaoo">❤️</div>
+        </div>
+        <div class="fav-info">
+          <h4>
+          <a href="cardapio.html"> PF Exemplo </a>
+          </h4>
+          <span>⭐ 4.8 • Prato Feito</span>
+        </div>
+      </div>
+
+      <div class="fav-card">
+        <div class="fav-img">
+          <div class="fav-emoji">🥪</div>
+          <div class="fav-coracaoo">❤️</div>
+        </div>
+        <div class="fav-info">
+          <h4>
+          <a href="cardapio.html"> Subway Exemplo </a>
+          </h4>
+          <span>⭐ 4.6 • Fast Food</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- ===== RESTAURANTES POPULARES ===== -->
+  <!-- ID 10 -->
+  <section class="populares-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">🏆Mais Bem Avaliados</h2>
+      <p class="section-sub">Ranking dos restaurantes mais bem avaliados esta semana</p>
+    </div>
+
+    <div class="populares-list">
+
+      <div class="popular-item popular-top">
+        <div class="popular-rank">1º</div>
+        <div class="popular-emoji">☕</div>
+        <div class="popular-info">
+          <h4><a href="cardapio.html"> Cafeteria Exemplo </a></h4>
+          <p>Cafés especiais, bebidas geladas e lanches rápidos</p>
+          <div class="popular-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="popular-nota">4.9</span>
+          </div>
+        </div>
+        <div class="popular-pedidos">
+          <strong>1.243</strong>
+          <span>pedidos</span>
+        </div>
+      </div>
+
+      <div class="popular-item">
+        <div class="popular-rank">2º</div>
+        <div class="popular-emoji">🍽️</div>
+        <div class="popular-info">
+          <h4>
+            <a href="cardapio.html"> PF Exemplo </a>
+          </h4>
+          <p>Pratos feitos completos com preço universitário</p>
+          <div class="popular-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+            <span class="popular-nota">4.8</span>
+          </div>
+        </div>
+        <div class="popular-pedidos">
+          <strong>987</strong>
+          <span>pedidos</span>
+        </div>
+      </div>
+
+      <div class="popular-item">
+        <div class="popular-rank">3º</div>
+        <div class="popular-emoji">🍕</div>
+        <div class="popular-info">
+          <h4><a href="cardapio.html"> Pizzaria Exemplo </a></h4>
+          <p>Pizzas artesanais com massa fina e recheio generoso</p>
+          <div class="popular-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+            <span class="popular-nota">4.7</span>
+          </div>
+        </div>
+        <div class="popular-pedidos">
+          <strong>854</strong>
+          <span>pedidos</span>
+        </div>
+      </div>
+
+      <div class="popular-item">
+        <div class="popular-rank">4º</div>
+        <div class="popular-emoji">🍫</div>
+        <div class="popular-info">
+          <h4><a href="cardapio.html"> Cacau Show Bloco Amarelo </a></h4>
+          <p>Chocolates, sobremesas e presentes especiais</p>
+          <div class="popular-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+            <span class="popular-nota">4.7</span>
+          </div>
+        </div>
+        <div class="popular-pedidos">
+          <strong>712</strong>
+          <span>pedidos</span>
+        </div>
+      </div>
+
+      <div class="popular-item">
+        <div class="popular-rank">5º</div>
+        <div class="popular-emoji">🥪</div>
+        <div class="popular-info">
+          <h4><a href="cardapio.html">Subway Exemplo</a></h4>
+          <p>Sanduíches frescos preparados na hora</p>
+          <div class="popular-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+            <span class="popular-nota">4.6</span>
+          </div>
+        </div>
+        <div class="popular-pedidos">
+          <strong>631</strong>
+          <span>pedidos</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== COMBOS UNIVERSITÁRIOS ===== -->
+  <!-- ID 08 -->
+  <section class="combos-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">🎓 Combos Universitários</h2>
+      <p class="section-sub">Ofertas especiais para quem estuda duro</p>
+    </div>
+
+    <div class="combos-grid">
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <span class="combo-emoji">🎓</span>
+          <div class="combo-badge">Mais pedido</div>
+        </div>
+        <h3>Combo Estudante</h3>
+        <p>Coxinha + Coca-Cola lata 350ml • Ideal para o intervalo das aulas</p>
+        <div class="combo-preco">
+          <span class="preco-antigo">R$ 13,90</span>
+          <span class="preco-novo">R$ 10,50</span>
+        </div>
+        <button class="btn-combo">Pedir agora</button>
+      </div>
+
+      <div class="combo-card combo-destaque">
+        <div class="combo-header">
+          <span class="combo-emoji">☕</span>
+          <div class="combo-badge">Favorito</div>
+        </div>
+        <h3>Combo Virando a Noite</h3>
+        <p>Café grande + Pão de Queijo + Cookie • Para quem tem prova amanhã</p>
+        <div class="combo-preco">
+          <span class="preco-antigo">R$ 19,90</span>
+          <span class="preco-novo">R$ 16,90</span>
+        </div>
+        <button class="btn-combo">Pedir agora</button>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <span class="combo-emoji">🍽️</span>
+          <div class="combo-badge">-20%</div>
+        </div>
+        <h3>Combo Almoço Completo</h3>
+        <p>PF de Frango + Batata Frita + Refrigerante • Refeição completa</p>
+        <div class="combo-preco">
+          <span class="preco-antigo">R$ 31,90</span>
+          <span class="preco-novo">R$ 24,90</span>
+        </div>
+        <button class="btn-combo">Pedir agora</button>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <span class="combo-emoji">🍫</span>
+          <div class="combo-badge">Novo</div>
+        </div>
+        <h3>Combo Docinho da Tarde</h3>
+        <p>Brownie + Trufa + Café Expresso • Para recarregar as energias</p>
+        <div class="combo-preco">
+          <span class="preco-antigo">R$ 18,90</span>
+          <span class="preco-novo">R$ 14,90</span>
+        </div>
+        <button class="btn-combo">Pedir agora</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIAS ===== -->
+  <!-- ID 09 -->
+  <section class="categorias-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🍽️ Categorias</h2>
+        <p class="section-sub">O que você está com vontade agora?</p>
+      </div>
+      <div class="categorias-grid">
+
+        <a class="categoria-card">
+          <div class="cat-emoji">🍔</div>
+          <span>Hambúrguer</span>
+        </a>
+        <a class="categoria-card">
+          <div class="cat-emoji">🍕</div>
+          <span>Pizza</span>
+        </a>
+        <a class="categoria-card cat-active">
+          <div class="cat-emoji">🍣</div>
+          <span>Japonesa</span>
+        </a>
+        <a class="categoria-card">
+          <div class="cat-emoji">🍧</div>
+          <span>Açaí</span>
+        </a>
+        <a class="categoria-card">
+          <div class="cat-emoji">🥗</div>
+          <span>Saudável</span>
+        </a>
+        <a class="categoria-card">
+          <div class="cat-emoji">🍰</div>
+          <span>Doces</span>
+        </a>
+        <a class="categoria-card">
+          <div class="cat-emoji">🌮</div>
+          <span>Mexicana</span>
+        </a>
+        <a class="categoria-card">
+          <div class="cat-emoji">☕</div>
+          <span>Café</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+<!-- ===== FILTROS ===== -->
+  <!-- ID 06 -->
+  <section class="filtros-section" id="filtros">
+    <div class="container">
+      <div class="filtros-bar">
+        <span class="filtros-label">Filtrar:</span>
+        <div class="filtros-grupo">
+          <button class="filtro-btn filtro-ativo">Todos</button>
+          <button class="filtro-btn">Aberto agora</button>
+          <button class="filtro-btn">Promoção</button>
+          <button class="filtro-btn">Entrega grátis</button>
+        </div>
+        <div class="filtros-grupo">
+          <select class="filtro-select">
+            <option>⭐ Avaliação</option>
+            <option>4.5+</option>
+            <option>4.0+</option>
+            <option>3.5+</option>
+          </select>
+          <select class="filtro-select">
+            <option>💰 Preço</option>
+            <option>Até R$ 20</option>
+            <option>Até R$ 40</option>
+            <option>Até R$ 60</option>
+          </select>
+          <select class="filtro-select">
+            <option>⏱ Tempo</option>
+            <option>Até 20 min</option>
+            <option>Até 30 min</option>
+            <option>Até 45 min</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARDÁPIO DIGITAL ===== -->
+  <!-- ID 05 -->
+  <section class="cardapio-section" id="cardapio">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">📋 Recomendações Para Você!</h2>
+        <p class="section-sub">Apenas as melhores opções</p>
+      </div>
+
+      <div class="cardapio-categorias">
+        <button class="cat-tab active">Todos</button>
+        <button class="cat-tab">Hambúrgueres</button>
+        <button class="cat-tab">Combos</button>
+        <button class="cat-tab">Batatas</button>
+        <button class="cat-tab">Bebidas</button>
+        <button class="cat-tab">Sobremesas</button>
+      </div>
+
+      <div class="cardapio-grid">
+
+        <div class="prato-card">
+          <div class="prato-img">
+            <img src="https://ogimg.infoglobo.com.br/rioshow/25033674-ea4-3ac/FT1086A/smash-burger.jpg" width="110" height="150"  alt="Classic Smash" >
+          </div>
+          <div class="prato-info">
+            <div class="prato-badge">🔥 Mais pedido</div>
+            <h4 class="prato-nome">Classic Smash</h4>
+            <p class="prato-desc">Blend 150g, queijo cheddar, alface americana, tomate, picles e molho especial da casa no pão brioche</p>
+            <div class="prato-footer">
+              <span class="prato-preco">R$ 28,90</span>
+              <button class="btn-add">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-img">
+            <img src="https://assets.unileversolutions.com/recipes-v3/230446-default.jpg" alt="Double Stack" >
+          </div>
+          <div class="prato-info">
+            <h4 class="prato-nome">Double Stack</h4>
+            <p class="prato-desc">Dois blends de 100g, bacon crocante, queijo duplo e molho barbecue defumado</p>
+            <div class="prato-footer">
+              <span class="prato-preco">R$ 36,90</span>
+              <button class="btn-add">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-img">
+            <img src="https://cdn.casaeculinaria.com/wp-content/uploads/2023/05/16114400/Massa-de-coxinha-768x432.webp" alt="Coxinha">
+          </div>
+          <div class="prato-info">
+            <div class="prato-badge ⭐ A mais queridinha"> ⭐ A mais queridinha</div>
+            <h4 class="prato-nome">Coxinha DCE</h4>
+            <p class="prato-desc">Coxinha crocante recheada com frango desfiado e cremoso catupiry.</p>
+            <div class="prato-footer">
+              <span class="prato-preco">R$ 8,50</span>
+              <button class="btn-add">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-img">
+            <img src="imagens/ChatGPT Image 29 de mai. de 2026, 10_58_15.png" alt="Batata Frita">
+          </div>
+          <div class="prato-info">
+            <h4 class="prato-nome">Batata Frita Bloco Vermelho</h4>
+            <p class="prato-desc">Porção grande com tempero especial da casa e molho cheddar</p>
+            <div class="prato-footer">
+              <span class="prato-preco">R$ 14,90</span>
+              <button class="btn-add">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-img">
+            <img src="imagens/Gemini_Generated_Image_yojex2yojex2yoje.png" alt="Café">
+          </div>
+          <div class="prato-info">
+            <h4 class="prato-nome">Café Dripper</h4>
+            <p class="prato-desc"> Café gelado cremoso com toque de chocolate e chantilly artesanal, ideal para quem busca energia e sabor sofisticado. (Disponivel nos tamanhos: P, M ou G)</p>
+            <div class="prato-footer">
+              <span class="prato-preco">R$ 18,90</span>
+              <button class="btn-add">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-img">
+            <img src="imagens/Gemini_Generated_Image_9upjs09upjs09upj.png" alt="Café">
+          </div>
+          <div class="prato-info">
+            <div class="prato-badge">🍫 Destaque</div>
+            <h4 class="prato-nome">PF Bloco Verde</h4>
+            <p class="prato-desc">PF completo com carne, arroz e fritas, Localizado no bloco Verde</p>
+            <div class="prato-footer">
+              <span class="prato-preco">R$ 16,90</span>
+              <button class="btn-add">+ Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- BRAND -->
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+          <img src="imagens/ChatGPT Image 28 de mai. de 2026, 13_51_28.png" alt="PUC Eats">
+          <span>PUC Eats</span>
+        </div>
+
+        <p>
+          O app de delivery da comunidade universitária PUC-PR.
+        </p>
+
+        <div class="footer-social">
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">🐦</a>
+        </div>
+
+      </div>
+
+      <!-- COLUNA 1 -->
+      <div class="footer-col">
+        <h5>Explorar</h5>
+
+        <ul>
+          <li><a href="#restaurantes">Restaurantes</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#promocoes">Promoções</a></li>
+          <li><a href="#favoritos">Favoritos</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUNA 2 -->
+      <div class="footer-col">
+        <h5>Empresa</h5>
+
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Seja parceiro</a></li>
+          <li><a href="#">Seja entregador</a></li>
+          <li><a href="#">Trabalhe conosco</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUNA 3 -->
+      <div class="footer-col">
+        <h5>Suporte</h5>
+
+        <ul>
+          <li><a href="#">Central de ajuda</a></li>
+          <li><a href="#">Termos de uso</a></li>
+          <li><a href="#">Privacidade</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 PUC-Eats. Feito com ❤️ para a comunidade PUC-PR.</p>
+      <p>Projeto acadêmico • HTML & CSS only</p>
+    </div>
+  </div>
+</footer>
+  <div id="puc-notif-container"></div>
+  <script src="script.js"></script>
+  <script src="notificacoes.js"></script>
+</body>
+</html>
+
+
