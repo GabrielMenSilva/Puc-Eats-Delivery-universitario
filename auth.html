@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUC EATS — Entrar / Cadastrar</title>
+  <link rel="stylesheet" href="auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <img src="imagens/logopuceats.png" class="logo-img" alt="PUC Eats">
+        <span class="logo-text">PUC <strong>EATS</strong></span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- ===== WRAPPER PRINCIPAL ===== -->
+  <main class="auth-main">
+
+    <!-- Fundo decorativo -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- ===== TABS: LOGIN / CADASTRO ===== -->
+    <div class="auth-wrapper container">
+
+      <!-- Lado esquerdo: benefícios -->
+      <div class="auth-left">
+        <div class="auth-left-inner">
+          <span class="auth-badge">🎓 Comunidade PUC</span>
+
+          <!-- Texto muda conforme a tab ativa -->
+          <h1 class="auth-title" id="authTitle">
+            Bem-vindo<br>de volta 👋
+          </h1>
+          <p class="auth-subtitle" id="authSubtitle">
+            Acesse sua conta e continue aproveitando os melhores restaurantes do campus.
+          </p>
+
+          <ul class="benefits-list">
+            <li class="benefit-item">
+              <span class="benefit-check">✓</span>
+              Cupons exclusivos para estudantes
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-check">✓</span>
+              Histórico de pedidos
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-check">✓</span>
+              Salvar endereços do campus
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lado direito: formulários -->
+      <div class="auth-right">
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">
+            Entrar
+          </button>
+          <button class="auth-tab" id="tabCadastro" onclick="switchTab('cadastro')">
+            Criar conta
+          </button>
+          <div class="auth-tab-indicator" id="tabIndicator"></div>
+        </div>
+
+        <!-- ===== FORM LOGIN ===== -->
+        <form class="auth-form active" id="formLogin" onsubmit="return false;">
+          <h2 class="form-title">Entrar na sua conta</h2>
+
+          <div class="field-group">
+            <label class="field-label" for="loginEmail">E-mail universitário</label>
+            <div class="field-wrap">
+              <span class="field-icon">✉</span>
+              <input
+                type="email"
+                id="loginEmail"
+                class="field-input"
+                placeholder="nome@pucpr.br"
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="loginSenha">Senha</label>
+            <div class="field-wrap">
+              <span class="field-icon">🔒</span>
+              <input
+                type="password"
+                id="loginSenha"
+                class="field-input"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+              >
+              <button type="button" class="toggle-pass" onclick="togglePass('loginSenha', this)">👁</button>
+            </div>
+          </div>
+
+          <div class="login-extras">
+            <label class="checkbox-wrap">
+              <input type="checkbox" id="lembrar">
+              <span class="checkbox-custom"></span>
+              Lembrar de mim
+            </label>
+            <a href="#" class="link-muted">Esqueci minha senha</a>
+          </div>
+
+          <button type="submit" class="btn-submit" onclick="handleLogin()">
+            Entrar na conta →
+          </button>
+
+          <p class="form-footer-text">
+            Não tem conta?
+            <button type="button" class="link-btn" onclick="switchTab('cadastro')">Criar conta grátis</button>
+          </p>
+
+        </form>
+
+        <!-- ===== FORM CADASTRO ===== -->
+        <form class="auth-form" id="formCadastro" onsubmit="return false;">
+          <h2 class="form-title">Criar conta gratuita</h2>
+
+          <div class="field-group">
+            <label class="field-label" for="cadNome">Nome completo</label>
+            <div class="field-wrap">
+              <span class="field-icon">👤</span>
+              <input
+                type="text"
+                id="cadNome"
+                class="field-input"
+                placeholder="Seu nome completo"
+                autocomplete="name"
+              >
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="cadEmail">E-mail universitário</label>
+            <div class="field-wrap">
+              <span class="field-icon">✉</span>
+              <input
+                type="email"
+                id="cadEmail"
+                class="field-input"
+                placeholder="nome@pucpr.br"
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="cadSenha">Senha</label>
+            <div class="field-wrap">
+              <span class="field-icon">🔒</span>
+              <input
+                type="password"
+                id="cadSenha"
+                class="field-input"
+                placeholder="Mínimo 8 caracteres"
+                autocomplete="new-password"
+              >
+              <button type="button" class="toggle-pass" onclick="togglePass('cadSenha', this)">👁</button>
+            </div>
+            <div class="pass-strength" id="passStrength">
+              <div class="pass-bar" id="passBar"></div>
+            </div>
+            <span class="pass-label" id="passLabel"></span>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="cadCurso">Curso</label>
+              <div class="field-wrap">
+                <select id="cadCurso" class="field-input field-select">
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Ciência da Computação</option>
+                  <option>Engenharia de Software</option>
+                  <option>Sistemas de Informação</option>
+                  <option>Engenharia Civil</option>
+                  <option>Engenharia Elétrica</option>
+                  <option>Medicina</option>
+                  <option>Direito</option>
+                  <option>Psicologia</option>
+                  <option>Administração</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="cadCampus">Campus</label>
+              <div class="field-wrap">
+                <select id="cadCampus" class="field-input field-select">
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Curitiba</option>
+                  <option>Londrina</option>
+                  <option>Toledo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="cadTipo">Tipo de usuário</label>
+              <div class="field-wrap">
+                <select id="cadTipo" class="field-input field-select">
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Aluno</option>
+                  <option>Professor</option>
+                  <option>Funcionário</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="cadTelefone">Telefone / WhatsApp</label>
+              <div class="field-wrap">
+                <span class="field-icon">📱</span>
+                <input
+                  type="tel"
+                  id="cadTelefone"
+                  class="field-input"
+                  placeholder="(41) 9 9999-9999"
+                  autocomplete="tel"
+                >
+              </div>
+            </div>
+          </div>
+
+
+          <label class="checkbox-wrap terms-wrap">
+            <input type="checkbox" id="cadTermos">
+            <span class="checkbox-custom"></span>
+            Li e aceito os <a href="#" class="link-inline">Termos de Uso</a> e a
+            <a href="#" class="link-inline">Política de Privacidade</a>
+          </label>
+
+          <button type="submit" class="btn-submit" onclick="handleCadastro()">
+            Criar minha conta →
+          </button>
+
+          <p class="form-footer-text">
+            Já tem conta?
+            <button type="button" class="link-btn" onclick="switchTab('login')">Entrar</button>
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="auth.js"></script>
+
+</body>
+</html>

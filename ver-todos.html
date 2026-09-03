@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUC EATS — Todos os Restaurantes</title>
+  <link rel="stylesheet" href="ver-todos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <img class="logo-image" src="imagens/logopuceats.png" alt="PUC Eats">
+        <span class="logo-text">PUC <strong>EATS</strong></span>
+      </a>
+      <div class="nav-right">
+        <button class="btn-back" onclick="history.back()">← Voltar</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BG decorativo -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div>
+        <span class="hero-badge">🗺️ Campus PUCPR</span>
+        <h1 class="hero-title">Todos os<br><span>restaurantes</span></h1>
+        <p class="hero-subtitle">Explore todos os estabelecimentos disponíveis no campus e ao redor. Filtre por
+          categoria, avaliação ou disponibilidade.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" id="statOpen">—</div>
+          <div class="stat-label">Abertos agora</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Estabelecimentos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.6★</div>
+          <div class="stat-label">Avaliação média</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTROLES ===== -->
+  <div class="controls-bar container">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Buscar restaurantes..."
+        oninput="filterCards()">
+    </div>
+
+    <div class="filter-chips" id="filterChips">
+      <button class="chip active" data-filter="todos" onclick="setFilter(this, 'todos')">Todos</button>
+      <button class="chip" data-filter="pf" onclick="setFilter(this, 'pf')">🍛 PF</button>
+      <button class="chip" data-filter="lanche" onclick="setFilter(this, 'lanche')">🍔 Lanches</button>
+      <button class="chip" data-filter="cafe" onclick="setFilter(this, 'cafe')">☕ Café</button>
+      <button class="chip" data-filter="pizza" onclick="setFilter(this, 'pizza')">🍕 Pizza</button>
+      <button class="chip" data-filter="doce" onclick="setFilter(this, 'doce')">🍫 Doces</button>
+      <button class="chip" data-filter="saudavel" onclick="setFilter(this, 'saudavel')">🥗 Saudável</button>
+    </div>
+
+    <select class="sort-select" id="sortSelect" onchange="sortCards()">
+      <option value="relevancia">Relevância</option>
+      <option value="avaliacao">Maior avaliação</option>
+      <option value="tempo">Menor tempo</option>
+      <option value="nome">A → Z</option>
+    </select>
+  </div>
+
+  <!-- ===== RESULTADOS ===== -->
+  <div class="container">
+    <div class="results-info">
+      <p class="results-count" id="resultsCount"><strong>12</strong> restaurantes encontrados</p>
+    </div>
+
+    <!-- ===== GRID ===== -->
+    <div class="restaurants-grid" id="grid">
+
+      <!-- PF Exemplo -->
+      <div class="card" data-name="PF Exemplo" data-cat="pf" data-rating="4.7" data-time="15" data-open="true">
+        <div class="card-thumb">
+          <img src="imagens/Gemini_Generated_Image_tdcnk6tdcnk6tdcn.png" alt="PF Exemplo" class="card-image" />
+          <div class="card-badges">
+            <span class="badge badge-open">Aberto</span>
+            <span class="badge badge-promo">Promoção</span>
+          </div>
+          <button class="card-fav" onclick="toggleFav(this)">♡</button>
+          <div class="card-eta">⏱ 15 min</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">PF Exemplo</div>
+            <div class="card-rating">★ 4.7 <span>(198)</span></div>
+          </div>
+          <div class="card-category">Prato Feito · Comida Brasileira</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="dot"></span> Praça Central</div>
+          </div>
+          <div class="card-divider"></div>
+          <button class="card-action">
+            <a href="cardapio.html">Ver cardápio →</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cafeteria Exemplo -->
+      <div class="card" data-name="Cafeteria Exemplo" data-cat="cafe" data-rating="4.9" data-time="8" data-open="true">
+        <div class="card-thumb">
+
+          <img src="imagens/f8e36d07-bce5-4560-ae4c-32ef59a2f198.jpg" alt="Cafeteria Exemplo" class="card-image">
+          <div class="card-badges">
+            <span class="badge badge-open">Aberto</span>
+          </div>
+          <button class="card-fav fav-active" onclick="toggleFav(this)">♥</button>
+          <div class="card-eta">⏱ 8 min</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">Cafeteria Exemplo</div>
+            <div class="card-rating">★ 4.9 <span>(445)</span></div>
+          </div>
+          <div class="card-category">Café · Bebidas Especiais · Doces</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="dot"></span> Bloco Azul</div>
+          </div>
+          <div class="card-divider"></div>
+          <button class="card-action">
+            <a href="cardapio.html">Ver cardápio →</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- RU Exemplo -->
+      <div class="card" data-name="RU Exemplo" data-cat="pf" data-rating="4.2" data-time="5" data-open="true">
+        <div class="card-thumb">
+          <img src="imagens/ru-exemplo.avif" alt="RU Exemplo" class="card-image">
+          <div class="card-badges">
+            <span class="badge badge-open">Aberto</span>
+          </div>
+          <button class="card-fav" onclick="toggleFav(this)">♡</button>
+          <div class="card-eta">⏱ 5 min</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">RU Exemplo</div>
+            <div class="card-rating">★ 4.2 <span>(860)</span></div>
+          </div>
+          <div class="card-category">PF · Self-service · Saudável</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="dot"></span> Bloco Verde</div>
+          </div>
+          <div class="card-divider"></div>
+          <button class="card-action">
+            <a href="cardapio.html">Ver cardápio →</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cacau Show Exemplo -->
+      <div class="card" data-name="Cacau Show Exemplo" data-cat="doce" data-rating="4.5" data-time="12"
+        data-open="false">
+        <div class="card-thumb">
+          <img src="imagens/cacau-show-exemplo.avif" alt="Cacau Show Exemplo" class="card-image">
+          <div class="card-badges">
+            <span class="badge badge-closed">Fechado</span>
+          </div>
+          <button class="card-fav" onclick="toggleFav(this)">♡</button>
+          <div class="card-eta">⏱ 12 min</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">Cacau Show Exemplo</div>
+            <div class="card-rating">★ 4.5 <span>(203)</span></div>
+          </div>
+          <div class="card-category">Chocolates · Doces · Presentes</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="dot"></span> Corredor B</div>
+          </div>
+          <div class="card-divider"></div>
+          <button class="card-action">
+            <a href="cardapio.html">Ver cardápio →</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- Subway Exemplo -->
+      <div class="card" data-name="Subway Exemplo" data-cat="lanche" data-rating="4.3" data-time="20" data-open="true">
+        <div class="card-thumb">
+          <img src="imagens/subway-exemplo.avif" alt="Subway Exemplo" class="card-image">
+          <div class="card-badges">
+            <span class="badge badge-open">Aberto</span>
+          </div>
+          <button class="card-fav" onclick="toggleFav(this)">♡</button>
+          <div class="card-eta">⏱ 20 min</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">Subway Exemplo</div>
+            <div class="card-rating">★ 4.3 <span>(521)</span></div>
+          </div>
+          <div class="card-category">Sanduíches · Saladas · Saudável</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="dot"></span> Entrada Principal</div>
+          </div>
+          <div class="card-divider"></div>
+          <button class="card-action">
+            <a href="cardapio.html">Ver cardápio →</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pizzaria Exemplo -->
+      <div class="card" data-name="Pizzaria Exemplo" data-cat="pizza" data-rating="4.6" data-time="25" data-open="true">
+        <div class="card-thumb">
+          <img src="imagens/Gemini_Generated_Image_vrmjs3vrmjs3vrmj.png" alt="Pizzaria Exemplo" class="card-image" />
+          <div class="card-badges">
+            <span class="badge badge-open">Aberto</span>
+            <span class="badge badge-promo">-20%</span>
+          </div>
+          <button class="card-fav" onclick="toggleFav(this)">♡</button>
+          <div class="card-eta">⏱ 25 min</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">Pizzaria Exemplo</div>
+            <div class="card-rating">★ 4.6 <span>(178)</span></div>
+          </div>
+          <div class="card-category">Pizza · Italiana · Combos</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="dot"></span> Bloco Laranja</div>
+          </div>
+          <div class="card-divider"></div>
+          <button class="card-action">Ver cardápio →
+            <a href="cardapio.html"></a>
+          </button>
+        </div>
+      </div>
+
+      <!-- empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🍽️</div>
+        <div class="empty-title">Nenhum restaurante encontrado</div>
+        <div class="empty-sub">Tente outro termo ou remova os filtros</div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- ===== PAGINAÇÃO ===== -->
+    <div class="pagination">
+      <button class="page-btn" disabled>‹</button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">›</button>
+    </div>
+
+
+  </div><!-- /container -->
+  <script src="ver-todos.js"></script>
+
+</body>
+
+</html>

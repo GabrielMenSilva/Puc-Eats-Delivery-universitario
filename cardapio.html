@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUC EATS — Cardápio</title>
+  <link rel="stylesheet" href="cardapio.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-placeholder"> 
+          <img src="imagens/logopuceats.png" alt="logo" class="logo-image"> </div>
+        <span class="logo-text">PUC EATS</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn-back">← Voltar</a>
+        <button class="cart-btn" id="cartBtn">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO DO RESTAURANTE ===== -->
+  <section class="rest-hero">
+    <div class="rest-hero-img-placeholder">
+        <img src="imagens/restaurantegenerico.png" alt="restaurante" class="rest-hero-img">
+    </div>
+    <div class="rest-hero-overlay">
+      <div class="container rest-hero-content">
+        <div class="rest-hero-info">
+          <div class="rest-hero-badge">Aberto agora ✓</div>
+          <h1 class="rest-hero-nome">Nome do Restaurante</h1>
+          <p class="rest-hero-tipo">Lanches • Pizza • Bebidas</p>
+          <div class="rest-hero-meta">
+            <span class="meta-item">⭐ <strong>4.8</strong> (2.4k avaliações)</span>
+            <span class="meta-sep">·</span>
+            <span class="meta-item">📍 <strong>350m</strong></span>
+            <span class="meta-sep">·</span>
+            <span class="meta-item">⏱ <strong>5-15 min</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIAS (TABS) ===== -->
+  <div class="cats-wrapper sticky-cats">
+    <div class="container">
+      <div class="cats-tabs" id="catsTabs">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BUSCA NO CARDÁPIO ===== -->
+  <div class="cardapio-search-wrapper">
+    <div class="container">
+      <div class="cardapio-search">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="cardapioSearch" placeholder="Buscar no cardápio…" class="cardapio-search-input">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CARDÁPIO ===== -->
+  <main class="cardapio-main">
+    <div class="container">
+      <div id="cardapioContainer">
+        <!-- Seções geradas pelo JS -->
+      </div>
+
+      <!-- Estado vazio (busca sem resultado) -->
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon">🔍</div>
+        <h3>Nenhum item encontrado</h3>
+        <p>Tente buscar por outro nome ou categoria.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== CARRINHO FLUTUANTE ===== -->
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-panel-header">
+      <h3>🛒 Seu Pedido</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-panel-items" id="cartItems">
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Nenhum item adicionado ainda.</p>
+      </div>
+    </div>
+    <div class="cart-panel-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span class="cart-total-value" id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn-finalizar">Finalizar Pedido →</button>
+    </div>
+  </div>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- ===== TOAST DE CONFIRMAÇÃO ===== -->
+  <div class="toast" id="toast">✓ Item adicionado ao carrinho</div>
+
+  <script src="cardapio.js"></script>
+</body>
+</html>
